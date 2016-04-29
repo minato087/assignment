@@ -1,3 +1,4 @@
+
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -15,8 +16,9 @@ public class Enemy extends Sprite{
 	}
 
 	@Override
-	public void draw(Graphics2D g) {
-	g.setColor(Color.RED);
-		g.fillRect(x, y, width, height);
-	}
+	 public void draw(Graphics2D g) {
+		g.setColor(Color.RED);
+	 	g.fillRect(x, y, width, height);
+	 }
+
 }
