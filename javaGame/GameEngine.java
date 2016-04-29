@@ -1,6 +1,3 @@
-
-
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -17,7 +14,6 @@ public class GameEngine implements KeyListener, GameReporter{
 		
 	private ArrayList<Enemy> enemies = new ArrayList<Enemy>();	
 	private SpaceShip v;	
-	
 	private Timer timer;
 	
 	private double difficulty = 0.1;
@@ -36,7 +32,7 @@ public class GameEngine implements KeyListener, GameReporter{
 			}
 		});
 		
-		}
+	}
 	
 	public void start(){
 		timer.start();
@@ -52,14 +48,27 @@ public class GameEngine implements KeyListener, GameReporter{
 		if(Math.random() < difficulty){
 			generateEnemy();
 		}
+		
+		Iterator<Enemy> e_iter = enemies.iterator();
+		while(e_iter.hasNext()){
+			Enemy e = e_iter.next();
+			e.proceed();
+			
+			if(!e.isAlive()){
+				e_iter.remove();
+				gp.sprites.remove(e);
+		// 		score += 100;
+			}
+		}
+		
 		gp.updateGameUI(this);
 		
 		Rectangle2D.Double vr = v.getRectangle();
 		Rectangle2D.Double er;
-	
+
 	}
 	
-
+	
 
 	public long getScore(){
 		return 0;

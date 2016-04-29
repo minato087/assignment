@@ -19,6 +19,14 @@ public class Enemy extends Sprite{
 	 public void draw(Graphics2D g) {
 		g.setColor(Color.RED);
 	 	g.fillRect(x, y, width, height);
+		
 	 }
 
+	public void proceed(){
+		
+	 }
+	
+	 public boolean isAlive(){
+		return alive;
+	 }
 }
