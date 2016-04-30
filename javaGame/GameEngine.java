@@ -28,7 +28,7 @@ public class GameEngine implements KeyListener, GameReporter{
 		timer = new Timer(50, new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent arg0) { 
 				process();
 			}
 		});
