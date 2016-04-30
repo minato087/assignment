@@ -81,19 +81,19 @@ public class GameEngine implements KeyListener, GameReporter{
 		timer.stop();
 	}
 	
-	void controlVehicle(KeyEvent e) {
-		switch (e.getKeyCode()) {
-		case KeyEvent.VK_LEFT:
-			v.move(-1);
-			break;
-		case KeyEvent.VK_RIGHT:
-			v.move(1);
-			break;
-		case KeyEvent.VK_D:
-			difficulty += 0.1;
-			break;
-		}
-	}
+	// void controlVehicle(KeyEvent e) {
+	// 	switch (e.getKeyCode()) {
+	// 	case KeyEvent.VK_LEFT:
+	// 		v.move(-1);
+	// 		break;
+	// 	case KeyEvent.VK_RIGHT:
+	// 		v.move(1);
+	// 		break;
+	// 	case KeyEvent.VK_D:
+	// 		difficulty += 0.1;
+	// 		break;
+	// 	}
+	// }
 
 	public long getScore(){
 		return 0;
@@ -101,7 +101,7 @@ public class GameEngine implements KeyListener, GameReporter{
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
-		controlVehicle(e);
+		//controlVehicle(e);
 		
 	}
 
