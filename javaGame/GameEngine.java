@@ -32,8 +32,7 @@ public class GameEngine implements KeyListener, GameReporter{
 				process();
 			}
 		});
-		
-	}
+		}
 	
 	public void start(){
 		timer.start();
