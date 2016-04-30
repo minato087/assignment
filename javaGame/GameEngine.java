@@ -17,6 +17,7 @@ public class GameEngine implements KeyListener, GameReporter{
 	
 	private Timer timer;
 	
+	// private long score = 0;
 	private double difficulty = 0.1;
 	
 	public GameEngine(GamePanel gp, SpaceShip v) {
@@ -28,11 +29,13 @@ public class GameEngine implements KeyListener, GameReporter{
 		timer = new Timer(50, new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent arg0) { 
+			public void actionPerformed(ActionEvent arg0) {
 				process();
 			}
 		});
-		} 
+		timer.setRepeats(true);
+		
+	}
 	
 	public void start(){
 		timer.start();
@@ -57,15 +60,22 @@ public class GameEngine implements KeyListener, GameReporter{
 			if(!e.isAlive()){
 				e_iter.remove();
 				gp.sprites.remove(e);
-				
+				// score += 100;
 			}
 		}
 		
 		gp.updateGameUI(this);
 		
 		Rectangle2D.Double vr = v.getRectangle();
-		 Rectangle2D.Double er;
+		Rectangle2D.Double er;
+		for(Enemy e : enemies){
+			er = e.getRectangle();
+			if(er.intersects(vr)){
+				die();
+				return;
+			}
 		}
+	}
 	
 	public void die(){
 		timer.stop();
@@ -78,7 +88,7 @@ public class GameEngine implements KeyListener, GameReporter{
 			break;
 		case KeyEvent.VK_RIGHT:
 			v.move(1);
-			break; 
+			break;
 		case KeyEvent.VK_D:
 			difficulty += 0.1;
 			break;
